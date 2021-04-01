@@ -1,4 +1,4 @@
-import { schema } from '@ioc:Adonis/Core/Validator'
+import { schema, rules } from '@ioc:Adonis/Core/Validator'
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
 export default class UserValidator {
@@ -25,6 +25,8 @@ export default class UserValidator {
 	 *    ```
 	 */
   public schema = schema.create({
+    username: schema.string(),
+    password: schema.string()
   })
 
 	/**
@@ -38,5 +40,9 @@ export default class UserValidator {
 	 * }
 	 *
 	 */
-  public messages = {}
+  public messages = {
+    'username.required': "Username is required.",
+    'username.string': "Username must be string.",
+    'password.string': "Password must be string."
+  }
 }

@@ -45,6 +45,7 @@ export default class RegisterValidator {
   public messages = {
     'username.required': "Username is required.",
     'username.string': "Username must be string.",
+    'username.unique': "Username must be unique.",
     'password.string': "Password must be string."
   }
 }
