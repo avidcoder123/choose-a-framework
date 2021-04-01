@@ -8,7 +8,7 @@ export default class AuthController {
   public async register({ auth, request }: HttpContextContract) {
     let user = await request.validate(RegisterValidator)
 
-    User.create({
+    await User.create({
       username: user.username,
       password: user.password
     })
