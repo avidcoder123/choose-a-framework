@@ -40,6 +40,6 @@ Route.group(async function() {
 
   Route.post("/create", "TasksController.create")
 
-  Route.delete("/delete", "TaskController.delete")
+  Route.delete("/delete", "TasksController.delete")
 
 }).prefix("/task")
