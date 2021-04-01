@@ -36,9 +36,9 @@ Route.group(async function() {
 
 Route.group(async function() {
 
-  Route.get("/list", "TaskContoller.list")
+  Route.get("/list", "TasksController.list")
 
-  Route.post("/create", "TaskController.create")
+  Route.post("/create", "TasksController.create")
 
   Route.delete("/delete", "TaskController.delete")
 

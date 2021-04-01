@@ -4,7 +4,7 @@ import User from 'App/Models/User'
 
 const BASE_URL = `http://${process.env.HOST}:${process.env.PORT}`
 
-test.group('User auth', (group) => {
+test.group('User auth', async function() {
   test("Register a user", async function(assert) {
     let { text } = await supertest(BASE_URL)
     .post("/auth/register")
