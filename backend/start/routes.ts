@@ -20,6 +20,26 @@
 
 import Route from '@ioc:Adonis/Core/Route'
 
-Route.get('/', async () => {
-  return { hello: 'world' }
+Route.get("/ping", async function() {
+  return {
+    ping: "pong"
+  }
 })
+
+Route.group(async function() {
+
+  Route.post("/register", "AuthController.register")
+
+  Route.post("/login", "AuthController.login")
+
+}).prefix("/auth")
+
+Route.group(async function() {
+
+  Route.get("/list", "TaskContoller.list")
+
+  Route.post("/create", "TaskController.create")
+
+  Route.delete("/delete", "TaskController.delete")
+
+}).prefix("/task")
