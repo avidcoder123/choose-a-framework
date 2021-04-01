@@ -22,4 +22,18 @@ test.group('User auth', (group) => {
 
     assert.exists(registered)
   })
+
+  test("Login a user", async function(assert) {
+    let { text } = await supertest(BASE_URL)
+    .post("/auth/login")
+    .send({
+      username: "register_AvidCoder123",
+      password: "secret"
+    })
+    .expect(200) as any
+
+    text = JSON.parse(text)
+
+    assert.exists(text.token)
+  })
 })
